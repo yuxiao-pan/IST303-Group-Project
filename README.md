@@ -10,7 +10,7 @@ Web app consisting of Claremont Colleges student news
 Professor (will meet with regularly to discuss scope), users are the students at the Claremont Colleges as well as the institutions themselves, team members mentioned above who will work on the project
 
 ## Research:
-- The Student Life newspaper covers the Claremont Colleges: https://tsl.news/
+The Student Life newspaper covers the Claremont Colleges: https://tsl.news/
 
 ## User Stories (estimate of completion times), based on development priority:
 1. Admin user can login to the admin system (frontend: 1 week, backend: 1 week)
