@@ -1,6 +1,10 @@
 # IST303-Group-Project
 ## Team members: 
 Abinash, Jerry, Emily, Chu
+## Team name: 
+NewsTo5
+## Product:
+Web app consisting of Claremont Colleges student news 
 
 ## Stakeholders: 
 Professor (will meet with regularly to discuss scope), users are the students at the Claremont Colleges as well as the institutions themselves, team members mentioned above who will work on the project
