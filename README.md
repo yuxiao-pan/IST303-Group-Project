@@ -12,13 +12,13 @@ Professor (will meet with regularly to discuss scope), users are the students at
 ## Research:
 - The Student Life newspaper covers the Claremont Colleges: https://tsl.news/
 
-## User Stories (estimate of completion times):
-- Admin user can login to the admin system (frontend: 1 week, backend: 1 week)
-- Admin user is able to create content/news,  (frontend: 1 week, backend 1 week)
-- Admin user can Edit content, (frontend: 1 week, backend 1 week)
-- Admin user can Delete content (frontend: 1 week, backend: 1 week)
-- Public user can see (read only access) the content in homepage (frontend 2 week, backend: 1 week)
-- Calculation functions i.e. likes, views, comments = trending news, sort by category (frontend: 1 week, backend: 1 week)
+## User Stories (estimate of completion times), based on development priority:
+1. Admin user can login to the admin system (frontend: 1 week, backend: 1 week)
+2. Admin user is able to create content/news,  (frontend: 1 week, backend 1 week)
+3. Admin user can Edit content, (frontend: 1 week, backend 1 week)
+4. Admin user can Delete content (frontend: 1 week, backend: 1 week)
+5. Public user can see (read only access) the content in homepage (frontend 2 week, backend: 1 week)
+6. Calculation functions i.e. likes, views, comments = trending news, sort by category (frontend: 1 week, backend: 1 week)
 
 ## Tech Stack
 - GUI frontend: HTML, CSS, Bootstrap (http://getbootstrap.com/), Javascript
