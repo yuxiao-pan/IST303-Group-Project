@@ -7,11 +7,6 @@ Professor (will meet with regularly to discuss scope), users are the students at
 
 ## Research:
 - The Student Life newspaper covers the Claremont Colleges: https://tsl.news/
-- Pitzer official website newsroom: https://www.pitzer.edu/communications/
-- CMC official website newsroom: https://www.cmc.edu/news
-- Scripps official website newsroom: http://www.scrippscollege.edu/news/
-- HMC official website newsroom: https://www.hmc.edu/about-hmc/news/
-- Pomona official website newsroom: https://www.pomona.edu/news
 
 ## User Stories (estimate of completion times):
 - Admin user can login to the admin system (frontend: 1 week, backend: 1 week)
@@ -19,6 +14,7 @@ Professor (will meet with regularly to discuss scope), users are the students at
 - Admin user can Edit content, (frontend: 1 week, backend 1 week)
 - Admin user can Delete content (frontend: 1 week, backend: 1 week)
 - Public user can see (read only access) the content in homepage (frontend 2 week, backend: 1 week)
+- Calculation functions i.e. likes, views, comments = trending news, sort by category (frontend: 1 week, backend: 1 week)
 
 ## Tech Stack
 - GUI frontend: HTML, CSS, Bootstrap (http://getbootstrap.com/), Javascript
