@@ -44,10 +44,20 @@ Agile Frameworks slides: https://docs.google.com/presentation/d/1zyiA0ii2AIDF4ux
 ## Part B
 
 ## User Stories into Tasks:
-- Admin user can login to the admin system (Fronted User interface for login, Backend Api for login, Access control in Login Api)
-- Admin user is able to create, edit and delete content/news (Frontend User interface for adding product, edit product and delete product, Backend Api for adding, updating, deleting content, Access control in the Content api)
-- Public user can see restricted content (Frontend for Public to see content, Backend api to get for public content with access control)
-- Subscribed user can see full content (Frontend for Subscribed user see full content, Backend Api for subscribed content)
+- Admin user can login to the admin system 
+  - Fronted User interface for login
+  - Backend Api for login, Access control in Login Api
+  -
+- Admin user is able to create, edit and delete content/news 
+  - Frontend User interface for adding product 
+  - edit product and delete product, 
+  - Backend Api for adding, updating, deleting content, Access control in the Content api
+- Public user can see restricted content 
+  - Frontend for Public to see content, 
+  - Backend api to get for public content with access control
+- Subscribed user can see full content 
+  - Frontend for Subscribed user see full content, 
+  - Backend Api for subscribed content
 
 ## Features in Milestone 1:
 
