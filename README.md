@@ -13,11 +13,17 @@ Professor (will meet with regularly to discuss scope), users are the students at
 The Student Life newspaper covers the Claremont Colleges: https://tsl.news/
 
 ## User Stories (estimate of completion times) and development priority:
-1. Admin user can login to the admin system (frontend: 1 week, backend: 1 week) (priority 10)
-2. Admin user is able to create content/news,  (frontend: 1 week, backend 1 week) (priority 20)
-3. Admin user can Edit content, (frontend: 1 week, backend 1 week) (priority 30)
-4. Admin user can Delete content (frontend: 1 week, backend: 1 week) (piority 30)
-5. Public user can see (read only access) the content in homepage (frontend 2 week, backend: 1 week) (priority 20)
+1. As an admin user, I would like to see a login page so that I can login to the admin system (frontend: 1 week, backend: 1 week) (priority 10)
+2. As an admin user, I would like to see a create content feature so that I can create content/news (frontend: 1 week, backend 1 week) (priority 20)
+3. As an admin user, I would like to see an edit feature so that I can edit content (frontend: 1 week, backend 1 week) (priority 30)
+4. As an admin user, I would like to see a delete feature so that I can delete content (frontend: 1 week, backend: 1 week) (piority 30)
+5. As a normal user, I would like to see user action features so that I can like content
+6. As a normal user, I would like to see a registration page so that I can subscribe to the website
+7. As an non-subscriber normal user, there will be a limit to reading the number of articles, so that if I wanted to read more, I would have to subscribe
+8. As a subscriber normal user, there will be premium content for me to view so that I can see the articles not available to non-subscribers
+9. As a normal user, there will be a basic search function so that I can search for articles
+
+7. As a public user, I would like to can see (read only access) the content in homepage (frontend 2 week, backend: 1 week) (priority 20)
 6. Calculation functions i.e. likes, views, comments = trending news, sort by category (frontend: 1 week, backend: 1 week) (priority 40)
 
 ## Tech Stack
