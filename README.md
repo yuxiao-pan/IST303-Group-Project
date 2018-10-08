@@ -46,8 +46,8 @@ Agile Frameworks slides: https://docs.google.com/presentation/d/1zyiA0ii2AIDF4ux
 ## User Stories into Tasks:
 - Admin user can login to the admin system 
   - Fronted User interface for login
-  - Backend Api for login, Access control in Login Api
-  -
+  - Backend Api for login, 
+  - Access control in Login Api
 - Admin user is able to create, edit and delete content/news 
   - Frontend User interface for adding product 
   - edit product and delete product, 
