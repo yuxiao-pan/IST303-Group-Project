@@ -38,11 +38,6 @@ The Student Life newspaper covers the Claremont Colleges: https://tsl.news/
 - Integrating front end and backend 
 - 11 weeks to complete
 
-## Roles:
-Product owner - Emily, Jerry
-Scrum master - Abinash, Chu
-Scrum team - Everyone
-
 ## Part B
 
 ## Tasks:
