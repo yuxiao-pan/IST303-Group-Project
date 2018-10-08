@@ -38,6 +38,8 @@ The Student Life newspaper covers the Claremont Colleges: https://tsl.news/
 - Integrating front end and backend 
 - 11 weeks to complete
 
+Agile Frameworks slides: https://docs.google.com/presentation/d/1zyiA0ii2AIDF4uxA5hnii_2x6P5RebO-YOB6lcBKrsM/edit?usp=sharing
+
 ## Part B
 
 ## User Stories into Tasks:
@@ -53,6 +55,7 @@ The Student Life newspaper covers the Claremont Colleges: https://tsl.news/
 ## Tasks per Team Member and Allocation:
 
 ## Burn Down Chart:
+https://docs.google.com/spreadsheets/d/1DuGii5SZX_DNYLPneqJOXInUprdrSd-mRr-syshv3D8/edit?usp=sharing
 
 ## Stand Up Meeting:
 
