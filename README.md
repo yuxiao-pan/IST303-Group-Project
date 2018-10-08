@@ -22,9 +22,8 @@ The Student Life newspaper covers the Claremont Colleges: https://tsl.news/
 7. As an non-subscriber normal user, there will be a limit to reading the number of articles, so that if I wanted to read more, I would have to subscribe
 8. As a subscriber normal user, there will be premium content for me to view so that I can see the articles not available to non-subscribers
 9. As a normal user, there will be a basic search function so that I can search for articles
-
-7. As a public user, I would like to can see (read only access) the content in homepage (frontend 2 week, backend: 1 week) (priority 20)
-6. Calculation functions i.e. likes, views, comments = trending news, sort by category (frontend: 1 week, backend: 1 week) (priority 40)
+10. As a public user, I would like to can see (read only access) the content in homepage so that I can view the content (frontend 2 week, backend: 1 week) (priority 20)
+11. As a user, I would like calculation functions i.e. likes, views, comments = trending news, sort by category to keep track of my actions so that I can see curated news (frontend: 1 week, backend: 1 week) (priority 40)
 
 ## Tech Stack
 - GUI frontend: HTML, CSS, Bootstrap (http://getbootstrap.com/), Javascript
@@ -35,5 +34,12 @@ The Student Life newspaper covers the Claremont Colleges: https://tsl.news/
 - Database and design will be parallel
 - Integrating front end and backend 
 - 11 weeks to complete
+
+## Roles:
+Product owner - Emily, Jerry
+Scrum master - Abinash, Chu
+Scrum team - Everyone
+
+## Product Backlog + Springlog:
 
 
