@@ -1,4 +1,7 @@
 # IST303-Group-Project
+
+## Part A
+
 ## Team members: 
 Abinash, Jerry, Emily, Chu
 ## Team name: 
@@ -40,6 +43,20 @@ Product owner - Emily, Jerry
 Scrum master - Abinash, Chu
 Scrum team - Everyone
 
-## Product Backlog + Springlog:
+## Part A
+
+## Tasks:
+
+## Features in Milestone 1:
+
+## 2 Iterations for Milestone 1:
+
+## Tasks per Team Member and Allocation:
+
+## Burn Down Chart:
+
+## Stand Up Meeting:
+
+## Functional and Test Code:
 
 
