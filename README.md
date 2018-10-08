@@ -43,7 +43,7 @@ Product owner - Emily, Jerry
 Scrum master - Abinash, Chu
 Scrum team - Everyone
 
-## Part A
+## Part B
 
 ## Tasks:
 
