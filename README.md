@@ -32,6 +32,7 @@ The Student Life newspaper covers the Claremont Colleges: https://tsl.news/
 - GUI frontend: HTML, CSS, Bootstrap (http://getbootstrap.com/), Javascript
 - Backend: Python, Django Web Framework (https://www.djangoproject.com/)
 - Database: Sqlite 
+- Project Management: KanbanFlow
 
 ## Process:
 - Database and design will be parallel
