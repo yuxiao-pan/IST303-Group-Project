@@ -62,8 +62,21 @@ The Student Life newspaper covers the Claremont Colleges: https://tsl.news/
   - Backend Api for subscribed content
 
 ## Features in Milestone 1:
+- Backend database 
+- Frontend site
+- Views function
+- Admin users
 
-## 2 Iterations for Milestone 1:
+## 2 Iterations for Milestone 1 (4 weeks):
+- Iteration 1 (2 weeks):
+  - Develop Database Model
+  - Create Django Project and Venv
+
+- Iteration 2 (2 weeks):
+  - Create Database
+  - Create Template Site
+  - Create Views
+  - Create Admin Users
 
 ## Tasks per Team Member and Allocation:
 
