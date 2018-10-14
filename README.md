@@ -71,9 +71,9 @@ The Student Life newspaper covers the Claremont Colleges: https://tsl.news/
 - Iteration 1 (2 weeks):
   - Develop Database Model
   - Create Django Project and Venv
+  - Create Database
 
 - Iteration 2 (2 weeks):
-  - Create Database
   - Create Template Site
   - Create Views
   - Create Admin Users
