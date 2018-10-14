@@ -40,6 +40,7 @@ The Student Life newspaper covers the Claremont Colleges: https://tsl.news/
 - 11 weeks to complete
 
 Agile Frameworks slides: https://docs.google.com/presentation/d/1zyiA0ii2AIDF4uxA5hnii_2x6P5RebO-YOB6lcBKrsM/edit?usp=sharing
+User stories slides: https://docs.google.com/presentation/d/1YfMjBXggA67HTTifOh4YS0UdOrBOvvI4hXP53z6Uixw/edit?usp=sharing
 
 ## Part B
 
@@ -69,6 +70,7 @@ Agile Frameworks slides: https://docs.google.com/presentation/d/1zyiA0ii2AIDF4ux
 https://docs.google.com/spreadsheets/d/1DuGii5SZX_DNYLPneqJOXInUprdrSd-mRr-syshv3D8/edit?usp=sharing
 
 ## Stand Up Meeting:
+https://docs.google.com/document/d/1rAzH6GMmugfKS4JFjQ0hQ07VHuIqE7W7QaEKBNH3C5A/edit?usp=sharing
 
 ## Functional and Test Code:
 
