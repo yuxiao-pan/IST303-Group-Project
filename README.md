@@ -17,16 +17,12 @@ The Student Life newspaper covers the Claremont Colleges: https://tsl.news/
 
 ## User Stories (estimate of completion times) and development priority:
 1. As an admin user, I would like to see a login page so that I can login to the admin system (frontend: 1 week, backend: 1 week) (priority 10)
-2. As an admin user, I would like to see a create content feature so that I can create content/news (frontend: 1 week, backend 1 week) (priority 20)
-3. As an admin user, I would like to see an edit feature so that I can edit content (frontend: 1 week, backend 1 week) (priority 30)
-4. As an admin user, I would like to see a delete feature so that I can delete content (frontend: 1 week, backend: 1 week) (piority 30)
-5. As a normal user, I would like to see user action features so that I can like content
-6. As a normal user, I would like to see a registration page so that I can subscribe to the website
-7. As an non-subscriber normal user, there will be a limit to reading the number of articles, so that if I wanted to read more, I would have to subscribe
-8. As a subscriber normal user, there will be premium content for me to view so that I can see the articles not available to non-subscribers
-9. As a normal user, there will be a basic search function so that I can search for articles
-10. As a public user, I would like to can see (read only access) the content in homepage so that I can view the content (frontend 2 week, backend: 1 week) (priority 20)
-11. As a user, I would like calculation functions i.e. likes, views, comments = trending news, sort by category to keep track of my actions so that I can see curated news (frontend: 1 week, backend: 1 week) (priority 40)
+2. As an admin user, I would like to see a create, edit, delete content feature so that I can create content/news (frontend: 1 week, backend 1 week) (priority 20)
+3. As a normal user, I would like to see user action features so that I can like content
+4. As a normal user, I would like to see a registration page so that I can subscribe to the website
+5. As an non-subscriber normal user, there will be a limit to reading the number of articles, so that if I wanted to read more, I would have to subscribe
+6. As a subscriber normal user, there will be premium content for me to view so that I can see the articles not available to non-subscribers
+7. As a normal user, there will be a basic search function so that I can search for articles
 
 ## Tech Stack
 - GUI frontend: HTML, CSS, Bootstrap (http://getbootstrap.com/), Javascript
