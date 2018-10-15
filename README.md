@@ -78,6 +78,13 @@ The Student Life newspaper covers the Claremont Colleges: https://tsl.news/
   - Create Views
   - Create Admin Users
 
+## Velocity
+- Timeline: 4 weeks to milestone 1, 5 weeks to milestone 2
+- Starting velocity: 31.25%
+  - Total: 8 hours per week
+  - Current: 2.5 hours per week
+
+
 ## Tasks per Team Member and Allocation:
 
 ## Burn Down Chart:
