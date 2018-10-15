@@ -1,3 +1,27 @@
+# How to run the application
+## Environment
+- Python 3.7.8
+- Virtual Environment 16.0.0
+
+## Run command
+- from application root activate the virtual environment
+```
+source ./venv/bin/activate
+```
+- run Dango server from app folder
+```
+cd ./app
+python3 manage.py runserver
+```
+- Stop server by Ctrl + C
+```
+Ctrl + C
+```
+- Deactivate the virtualenv where not use
+```
+deactivate
+```
+
 # IST303-Group-Project
 
 ## Part A
