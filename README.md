@@ -1,10 +1,11 @@
 # How to run the application
-## Environment
-- Python 3.7.8
+## Environment to run the application
+- Python 3.7.8 
+- Pip 18.1
 - Virtual Environment 16.0.0
 
-## Run command
-- from application root activate the virtual environment
+## Run command 
+- from application root activate the virtual environment 
 ```
 source ./venv/bin/activate
 ```
