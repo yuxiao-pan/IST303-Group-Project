@@ -121,5 +121,5 @@ https://docs.google.com/spreadsheets/d/1DuGii5SZX_DNYLPneqJOXInUprdrSd-mRr-syshv
 https://docs.google.com/document/d/1rAzH6GMmugfKS4JFjQ0hQ07VHuIqE7W7QaEKBNH3C5A/edit?usp=sharing
 
 ## Functional and Test Code:
-
+All code will be in app folder.
 
