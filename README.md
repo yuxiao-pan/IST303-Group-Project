@@ -46,7 +46,8 @@ Starting development server at http://127.0.0.1:8000/
 Quit the server with CONTROL-C.
 
 ```
-## Run Test from root with command "pytest app/" after activating virtual environment
+## Run Tests
+Run Test from root with command "pytest app/" after activating virtual environment
 ```
 (venv) $ pytest app/
 ================================================================= test session starts =================================================================
