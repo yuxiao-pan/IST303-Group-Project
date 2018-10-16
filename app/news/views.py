@@ -5,4 +5,4 @@ from django.http import HttpResponse
 
 
 def index(request):
-    return HttpResponse("Application news portal Started")
+    return HttpResponse("Application news portal Started", content_type="text/plain")
