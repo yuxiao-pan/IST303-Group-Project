@@ -7,18 +7,21 @@
 ## Run command 
 - from application root activate the virtual environment 
 ```
-source ./venv/bin/activate
+### Mac OS
+source ./venv/bin/activate 
+### Windows OS
+source ./venv/bin/activate.bat
 ```
 - run Dango server from app folder
 ```
 cd ./app
-python3 manage.py runserver
+python manage.py runserver
 ```
 - Stop server by Ctrl + C
 ```
 Ctrl + C
 ```
-- Deactivate the virtualenv where not use
+- Deactivate the virtualenv when not in use
 ```
 deactivate
 ```
@@ -42,6 +45,13 @@ Django version 2.1.2, using settings 'mysite.settings'
 Starting development server at http://127.0.0.1:8000/
 Quit the server with CONTROL-C.
 
+```
+## Install FAQ
+- Django not found/ installed
+Some user reported that in the first run Django was not loaded from Virtual Environment. 
+In such case please install Django after virtual environment activation by 
+```
+pip install Django
 ```
 
 # IST303-Group-Project
