@@ -4,7 +4,7 @@
 - Pip 18.1
 - Virtual Environment 16.0.0
 
-## Run command 
+## Run Application command 
 - from application root activate the virtual environment 
 ```
 ### Mac OS
@@ -45,6 +45,21 @@ Django version 2.1.2, using settings 'mysite.settings'
 Starting development server at http://127.0.0.1:8000/
 Quit the server with CONTROL-C.
 
+```
+## Run Test from root with command "pytest app/" after activating virtual environment
+```
+(venv) $ pytest app/
+================================================================= test session starts =================================================================
+platform darwin -- Python 3.7.0, pytest-3.8.2, py-1.7.0, pluggy-0.7.1
+Django settings: mysite.settings (from ini file)
+rootdir: /Users/abinash/Desktop/CGU/Courses/Software Development/project/IST303-Group-Project/app, inifile: pytest.ini
+plugins: django-3.4.3
+collected 1 item
+
+app/test/test_auth_endpoint.py .                                                                                                                [100%]
+
+============================================================== 1 passed in 0.16 seconds ===============================================================
+(venv) $
 ```
 ## Install FAQ
 - Django not found/ installed
