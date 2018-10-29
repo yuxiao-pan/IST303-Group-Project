@@ -2,20 +2,21 @@ from django.contrib.auth.forms import UserCreationForm
 from django.contrib.auth import authenticate, login
 
 class Signup:
-    def __init__():
+    def __init__(self):
         pass
     
-    def create_user(request):
-        form = UserCreationForm(request.POST)
-        if form.is_valid():
-            form.save()
-            username = form.cleaned_data.get('username')
-            raw_password = form.cleaned_data.get('password1')
-            user = authenticate(username=username, password=raw_password)
-            login(request, user)
+    def create_user(self, form):
+        form.save()
     
-    def create_form():
+    def create_form(self):
         return UserCreationForm()
+    
+    def login_user(self, form, request):
+        username = form.cleaned_data.get('username')
+        raw_password = form.cleaned_data.get('password1')
+        user = authenticate(username=username, password=raw_password)
+        login(request, user)
+
 
 
 

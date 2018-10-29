@@ -16,12 +16,16 @@ def dashboard(request):
     return render(request, 'dashboard.html')
 
 def signup(request):
-    if request.method == 'POST':
-        Signup.create_user(request)
-        return redirect('dashboard')
+    signup = Signup()
+    if request.method == 'POST':        
+        form = UserCreationForm(request.POST)
+        if form.is_valid():
+            signup.create_user(form)
+            signup.login_user(form, request)
+            return redirect('dashboard')
     else:
-        form = UserCreationForm()
-        return render(request, 'signup.html', {'form': form})
+        form = signup.create_form()
+    return render(request, 'signup.html', {'form': form})
 
 def logout(request):
     return render(request, 'dashboard.html')
