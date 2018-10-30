@@ -6,7 +6,18 @@
 <div class="collapse navbar-collapse" id="navbarCollapse">
     <ul class="navbar-nav mr-auto">
     <li class="nav-item active">
-        <a class="nav-link" href={% url 'dashboard' %}>Home <span class="sr-only">(current)</span></a>
+        <a class="nav-link" href={% url 'home' %}>Home <span class="sr-only">(current)</span></a>
+    </li>
+    <!-- Dropdown -->
+    <li class="nav-item dropdown">
+        <a class="nav-link dropdown-toggle" href="#" id="navbardrop" data-toggle="dropdown">
+            Categories
+        </a>
+        <div class="dropdown-menu">
+            {% for category in categories %}
+            <a class="dropdown-item" href="/pages/news?cat={{category.id}}">{{category}}</a>
+            {% endfor %}
+        </div>
     </li>
     <li class="nav-item">
         <a class="nav-link" href={% url 'logout' %}>Signout</a>
