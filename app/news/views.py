@@ -27,7 +27,7 @@ def dashboard(request):
     news = NewsService().getAll()
     context = {
         "categories":categories,
-        "news":news
+        "news":getPreviewNews(news)
     }
     return render(request, 'dashboard.html', context)
 
