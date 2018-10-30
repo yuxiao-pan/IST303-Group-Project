@@ -30,6 +30,20 @@ class NewsService():
             raise Http404("Error getting news")
         return news
 
+    def getAllByCategoryId(self, id):
+        try:
+            news = News.objects.filter(category_id=id)
+        except news.DoesNotExist:
+            raise Http404("Error getting news")
+        return news
+
+    def getPublicByCategoryId(self, id):
+        try:
+            news = News.objects.filter(category_id=id, content_type_id=2)
+        except news.DoesNotExist:
+            raise Http404("Error getting news")
+        return news
+
 class CategoryService():
     def __init__(self):
         pass

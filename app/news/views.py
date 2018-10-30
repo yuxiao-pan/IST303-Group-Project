@@ -63,6 +63,24 @@ def newsdetail(request, news_id):
     news = serializers.serialize("json", news)
     return JsonResponse(news, safe=False)
 
+def newscategory(request):
+    if request.user.is_authenticated:
+        categories = CategoryService().getAll()
+        news = NewsService().getAllByCategoryId(request.GET.get('cat'))
+        context = {
+            "categories": categories,
+            "news" : getPreviewNews(news)
+        }
+        return render(request, 'dashboard.html', context)
+    else:
+        categories = CategoryService().getPublic()
+        news = NewsService().getPublicByCategoryId(request.GET.get('cat'))
+        context = {
+            "categories": categories,
+            "news" : getPreviewNews(news)
+        }
+        return render(request, 'home.html', context)
+
 ## helper methods
 def getPreviewNews(news):
     for item in news:
