@@ -8,3 +8,5 @@ dist
 MANIFEST
 
 .DS_Store
+
+app/news/migrations
