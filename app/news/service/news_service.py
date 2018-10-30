@@ -1,4 +1,5 @@
 from django.http import Http404
+from django.shortcuts import get_object_or_404
 
 from ..models import Category
 from ..models import News
@@ -13,6 +14,13 @@ class NewsService():
             news = News.objects.all()
         except news.DoesNotExist:
             raise Http404("News does not exist")
+        return news
+    
+    def getById(self, id):
+        try:
+            news = News.objects.filter(id=id)
+        except news.DoesNotExist:
+            raise Http404("News ID does not exist")
         return news
 
 class CategoryService():

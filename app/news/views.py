@@ -1,14 +1,19 @@
 from django.shortcuts import render, redirect
-from django.http import HttpResponse
+from django.http import HttpResponse, JsonResponse
 from django.contrib.auth import authenticate, login
 from django.contrib.auth.decorators import login_required
 from django.contrib.auth.forms import UserCreationForm
+from django.core import serializers
 
 from .service.authentication import Signup
 from .service.news_service import CategoryService
 from .service.news_service import NewsService
 from .models import Category
+from django.forms.models import model_to_dict
+import json
 
+
+#### Controllers
 def health(request):
     return HttpResponse("Application news portal Started", content_type="text/plain")
 
@@ -52,6 +57,13 @@ def signup(request):
 def logout(request):
     return render(request, 'dashboard.html')
 
+
+def newsdetail(request, news_id):
+    news = NewsService().getById(news_id)
+    news = serializers.serialize("json", news)
+    return JsonResponse(news, safe=False)
+
+## helper methods
 def getPreviewNews(news):
     for item in news:
         item.content = item.content[0:200]
