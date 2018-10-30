@@ -22,6 +22,13 @@ class NewsService():
         except news.DoesNotExist:
             raise Http404("News ID does not exist")
         return news
+    
+    def getPublic(self):
+        try:
+            news = News.objects.filter(content_type_id=2)
+        except news.DoesNotExist:
+            raise Http404("Error getting news")
+        return news
 
 class CategoryService():
     def __init__(self):
@@ -33,3 +40,10 @@ class CategoryService():
         except categories.DoesNotExist:
             raise Http404("Category does not exist")
         return categories 
+
+    def getPublic(self):
+        try:
+            categories = Category.objects.filter(content_type_id=2)
+        except categories.DoesNotExist:
+            raise Http404("Error getting news")
+        return categories

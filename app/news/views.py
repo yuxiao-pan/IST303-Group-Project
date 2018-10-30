@@ -18,8 +18,8 @@ def health(request):
     return HttpResponse("Application news portal Started", content_type="text/plain")
 
 def home(request):
-    categories = CategoryService().getAll()
-    news = NewsService().getAll()
+    categories = CategoryService().getPublic()
+    news = NewsService().getPublic()
     
     context = {
         "categories":categories,
