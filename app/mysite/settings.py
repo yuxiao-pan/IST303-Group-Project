@@ -127,9 +127,9 @@ STATICFILES_DIRS = [
     'news/static/',
 ]
 
-LOGIN_REDIRECT_URL = reverse_lazy('dashboard')
+LOGIN_REDIRECT_URL = reverse_lazy('home')
 LOGIN_URL = reverse_lazy('login')
 LOGOUT_REDIRECT_URL = reverse_lazy('login')
-SIGNUP_REDIRECT_URL = reverse_lazy('dashboard')
+SIGNUP_REDIRECT_URL = reverse_lazy('home')
 
 EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'

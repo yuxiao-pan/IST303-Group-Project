@@ -15,7 +15,7 @@
                             <div class="card-body">
                             <h5 class="card-title">{{item.title}}</h5>
                             <p class="card-text">{{item.content}}</p>
-                            <a href="/pages/news/{{item.id}}" class="btn btn-primary">Read More</a>
+                            <a href="{% url 'news-detail' item.id%}" class="btn btn-primary">Read More</a>
                             </div>
                         </div>
                     </div>
@@ -25,11 +25,9 @@
             <div class="col-md-4">
                 <ul class="list-group">
                     <li class="list-group-item">Trending Articles</li>
-                    <li class="list-group-item"><a href="#">News 1</a></li>
-                    <li class="list-group-item"><a href="#">News 2</a></li>
-                    <li class="list-group-item"><a href="#">News 3</a></li>
-                    <li class="list-group-item"><a href="#">News 4</a></li>
-                    <li class="list-group-item"><a href="#">News 5</a></li>
+                    {% for item in trend %}
+                    <li class="list-group-item"><a href="{% url 'news-detail' item.id%} ">{{item.title}}</a></li>
+                    {% endfor %}
                 </ul>
             </div>
         </div>
