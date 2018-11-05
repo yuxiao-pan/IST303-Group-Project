@@ -68,7 +68,13 @@ def newsdetail(request, news_id):
 
     if (news['content_type_id'] == 1 and request.user.is_authenticated != 1):
         return HttpResponse("Signup to view news", content_type="text/plain")
-    return JsonResponse(news, safe=False)
+    context = {
+        "news":news,
+        "categories": getCategory(request)
+    }
+
+    ##return JsonResponse(news, safe=False)
+    return render(request, 'content.html', context)
 
 def newscategory(request):
     if request.user.is_authenticated:
@@ -98,3 +104,10 @@ def getPreviewNews(news):
 
 def getTrendingNews():
     pass ## TODO
+
+def getCategory(request):
+    if request.user.is_authenticated:
+        return CategoryService().getAll()
+    else:
+        return CategoryService().getPublic()
+
