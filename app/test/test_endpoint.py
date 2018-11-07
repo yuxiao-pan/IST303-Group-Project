@@ -138,7 +138,7 @@ def test_unauthorized_premium_content(client, django_user_model):
   ]
   result = client.get('/pages/news/5')
   content = result.content.decode("utf-8")
-  print(content)
+  #print(content)
   for value in expected_content:
     assert value in content
   assert result.status_code == 200
@@ -150,7 +150,7 @@ def test_unauthorized_premium_content_error_msg(client, django_user_model):
   ]
   result = client.get('/pages/news/5')
   content = result.content.decode("utf-8")
-  print(content)
+  #print(content)
   for value in expected_content:
     assert value in content
   assert result.status_code == 200
@@ -167,7 +167,7 @@ def test_authorized_premium_content(client, django_user_model):
   client.login(username=username, password=password)
   result = client.get('/pages/news/5')
   content = result.content.decode("utf-8")
-  print(content)
+  #print(content)
   for value in expected_content:
     assert value in content
   assert result.status_code == 200
