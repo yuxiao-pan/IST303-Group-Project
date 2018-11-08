@@ -139,7 +139,7 @@ def test_unauthorized_premium_content_error_msg(client):
 @pytest.mark.django_db
 def test_authorized_premium_content(client):
   expected_content = [
-    '<h1>Article Title</h1>',
+    '<h1>Science News for Premium Users</h1>',
     'Science News for Premium Users'
   ]
 
