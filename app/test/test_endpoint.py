@@ -76,41 +76,6 @@ def test_public_category(client, django_user_model):
     assert value in content
   assert result.status_code == 200
 
-# premium user ask for premium content
-@pytest.mark.django_db
-def test_premium_category(client, django_user_model):
-  expected_content = [
-    '<h5 class="card-title">Once upon a time</h5>',
-    '<p class="card-text">A page in an Oliver Twist book Oliver Twist Parish Boy&#39;s Progress is a title-character novel, written in 1838. It was written by Charles Dickens.  Storyline &#39;Oliver Twist&#39; The Parish Boy&#39;s Progress is</p>',
-    '<a href="/pages/news/1" class="btn btn-primary">Read More</a>'
-  ]
-  username = "admin"
-  password = "123456"
-  client.login(username=username, password=password)
-  result = client.get('/pages/news?cat=4')
-  content = result.content.decode("utf-8")
-  #print(content)
-  for value in expected_content:
-    assert value in content
-  assert result.status_code == 200
-
-# when public user asks premium category, this test should fail
-@pytest.mark.django_db
-@pytest.mark.xfail
-def test_authorized_premium_category(client, django_user_model):
-  expected_content = [
-    '<h5 class="card-title">Once upon a time</h5>',
-    '<p class="card-text">A page in an Oliver Twist book Oliver Twist Parish Boy&#39;s Progress is a title-character novel, written in 1838. It was written by Charles Dickens.  Storyline &#39;Oliver Twist&#39; The Parish Boy&#39;s Progress is</p>',
-    '<a href="/pages/news/1" class="btn btn-primary">Read More</a>'
-  ]
-  result = client.get('/pages/news?cat=4')
-  content = result.content.decode("utf-8")
-  #print(content)
-  for value in expected_content:
-    assert value in content
-  assert result.status_code == 200
-
-
 @pytest.mark.django_db
 @pytest.mark.xfail
 def test_unauthorized_premium_category(client, django_user_model):
@@ -126,7 +91,23 @@ def test_unauthorized_premium_category(client, django_user_model):
     assert value in content
   assert result.status_code == 200
 
-  
+# premium user ask for premium content
+@pytest.mark.django_db
+def test_authorized_premium_category(client, django_user_model):
+  expected_content = [
+    '<h5 class="card-title">Once upon a time</h5>',
+    '<p class="card-text">A page in an Oliver Twist book Oliver Twist Parish Boy&#39;s Progress is a title-character novel, written in 1838. It was written by Charles Dickens.  Storyline &#39;Oliver Twist&#39; The Parish Boy&#39;s Progress is</p>',
+    '<a href="/pages/news/1" class="btn btn-primary">Read More</a>'
+  ]
+  username = "admin"
+  password = "123456"
+  client.login(username=username, password=password)
+  result = client.get('/pages/news?cat=4')
+  content = result.content.decode("utf-8")
+  #print(content)
+  for value in expected_content:
+    assert value in content
+  assert result.status_code == 200
 
 @pytest.mark.django_db
 @pytest.mark.xfail
