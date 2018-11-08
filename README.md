@@ -47,20 +47,21 @@ Quit the server with CONTROL-C.
 
 ```
 ## Run Tests
-Run Test from root with command "pytest app/" after activating virtual environment
+Run Test from inside "app" folder with command "pytest test" after activating virtual environment. Test are located in app/test
 ```
-(venv) $ pytest app/
-================================================================= test session starts =================================================================
+(venv) WL-198-226:app abinash$ pytest test
+======================== test session starts =========================
 platform darwin -- Python 3.7.0, pytest-3.8.2, py-1.7.0, pluggy-0.7.1
-Django settings: mysite.settings (from ini file)
+Django settings: mysite.settings_test (from ini file)
 rootdir: /Users/abinash/Desktop/CGU/Courses/Software Development/project/IST303-Group-Project/app, inifile: pytest.ini
 plugins: django-3.4.3
-collected 1 item
+collected 16 items
 
-app/test/test_auth_endpoint.py .                                                                                                                [100%]
+test/test_endpoint.py .....x.x..                               [ 62%]
+test/test_model.py ......                                      [100%]
 
-============================================================== 1 passed in 0.16 seconds ===============================================================
-(venv) $
+================ 14 passed, 2 xfailed in 0.98 seconds ================
+(venv) WL-198-226:app abinash$
 ```
 ## Install FAQ
 - Django not found/ installed
