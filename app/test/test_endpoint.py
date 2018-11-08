@@ -62,7 +62,7 @@ def test_signup_page(client):
 
 # public request for category content
 @pytest.mark.django_db
-def test_public_category(client, django_user_model):
+def test_public_category(client):
   #django_user_model.objects.create_user(username=username, password=password)
   expected_content = [
     '<p class="card-text">The poetic thing about basketball is that, occasionally, it leaves you speechless. The Golden State Warriors, in particular, are a team that has the ability to do that.  We’ve seen it a lot in the pas</p>',
@@ -78,7 +78,7 @@ def test_public_category(client, django_user_model):
 
 @pytest.mark.django_db
 @pytest.mark.xfail
-def test_unauthorized_premium_category(client, django_user_model):
+def test_unauthorized_premium_category(client):
   expected_content = [
     '<h5 class="card-title">Once upon a time</h5>',
     '<p class="card-text">A page in an Oliver Twist book Oliver Twist Parish Boy&#39;s Progress is a title-character novel, written in 1838. It was written by Charles Dickens.  Storyline &#39;Oliver Twist&#39; The Parish Boy&#39;s Progress is</p>',
@@ -93,7 +93,7 @@ def test_unauthorized_premium_category(client, django_user_model):
 
 # premium user ask for premium content
 @pytest.mark.django_db
-def test_authorized_premium_category(client, django_user_model):
+def test_authorized_premium_category(client):
   expected_content = [
     '<h5 class="card-title">Once upon a time</h5>',
     '<p class="card-text">A page in an Oliver Twist book Oliver Twist Parish Boy&#39;s Progress is a title-character novel, written in 1838. It was written by Charles Dickens.  Storyline &#39;Oliver Twist&#39; The Parish Boy&#39;s Progress is</p>',
@@ -111,7 +111,7 @@ def test_authorized_premium_category(client, django_user_model):
 
 @pytest.mark.django_db
 @pytest.mark.xfail
-def test_unauthorized_premium_content(client, django_user_model):
+def test_unauthorized_premium_content(client):
   expected_content = [
     '<h5 class="card-title">Once upon a time</h5>',
     '<p class="card-text">A page in an Oliver Twist book Oliver Twist Parish Boy&#39;s Progress is a title-character novel, written in 1838. It was written by Charles Dickens.  Storyline &#39;Oliver Twist&#39; The Parish Boy&#39;s Progress is</p>',
@@ -125,7 +125,7 @@ def test_unauthorized_premium_content(client, django_user_model):
   assert result.status_code == 200
 
 @pytest.mark.django_db
-def test_unauthorized_premium_content_error_msg(client, django_user_model):
+def test_unauthorized_premium_content_error_msg(client):
   expected_content = [
     'Signup to view news'
   ]
@@ -137,7 +137,7 @@ def test_unauthorized_premium_content_error_msg(client, django_user_model):
   assert result.status_code == 200
 
 @pytest.mark.django_db
-def test_authorized_premium_content(client, django_user_model):
+def test_authorized_premium_content(client):
   expected_content = [
     '<h1>Article Title</h1>',
     'Science News for Premium Users'
