@@ -1,0 +1,33 @@
+{% extends "base.html" %}
+
+{% block navbar %}
+{% if user.is_authenticated %}
+  {% include "logged-nav.html" %}
+{% else %}
+  {% include "general-nav.html" %}
+{% endif %}
+{% endblock %}
+
+{% block content %}
+        <div class="row">
+            <div class="col-md-8">
+                <div class="row">
+                  <h1>Article Title</h1>
+                  <img class="img-fluid mx-auto p-2" src="https://via.placeholder.com/900x400">
+                  <br>
+                  <br>
+                  <p class="p-2">
+                    {{news.content}}
+                  </p>
+              </div>
+            </div>
+            <div class="col-md-4">
+                <ul class="list-group">
+                    <li class="list-group-item">Trending Articles</li>
+                    {% for item in trend %}
+                    <li class="list-group-item"><a href="{% url 'news-detail' item.id%} ">{{item.title}}</a></li>
+                    {% endfor %}
+                </ul>
+            </div>
+        </div>
+{% endblock %}
