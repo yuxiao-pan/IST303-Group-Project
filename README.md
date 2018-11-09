@@ -46,7 +46,9 @@ Starting development server at http://127.0.0.1:8000/
 Quit the server with CONTROL-C.
 
 ```
-## Run Tests
+## Tests
+- Test Settings
+
 Test uses following pytest.ini settings
 ```
 [pytest]
@@ -55,7 +57,9 @@ addopts = --reuse-db
 ```
 DJANGO_SETTINGS_MODULE setting is required for providing django context to test. 
 
-"--reuse-db" is required so that test enviroment does not delete the test database
+"--reuse-db" is option provided by pytest-django plugin. It is used so that test enviroment does not delete the test database
+
+- Run Tests
 
 Run Test from inside "app" folder with command "pytest test" after activating virtual environment. Test are located in app/test folder
 ```
