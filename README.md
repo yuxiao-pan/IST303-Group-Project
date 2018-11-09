@@ -71,6 +71,13 @@ In such case please install Django after virtual environment activation by
 pip install Django
 ```
 
+- Pytest run fail/ pytest error
+At first run pytest sometimes fails due to unable to locate the pytest-django library 
+To fix the issue pytest-django needs to be installed from within virtual environment
+```
+pip install pytest-django
+```
+
 # IST303-Group-Project
 
 ## Part A
