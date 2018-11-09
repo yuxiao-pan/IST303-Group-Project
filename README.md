@@ -47,7 +47,17 @@ Quit the server with CONTROL-C.
 
 ```
 ## Run Tests
-Run Test from inside "app" folder with command "pytest test" after activating virtual environment. Test are located in app/test
+Test uses following pytest.ini settings
+```
+[pytest]
+DJANGO_SETTINGS_MODULE=mysite.settings_test
+addopts = --reuse-db
+```
+DJANGO_SETTINGS_MODULE setting is required for providing django context to test. 
+
+"--reuse-db" is required so that test enviroment does not delete the test database
+
+Run Test from inside "app" folder with command "pytest test" after activating virtual environment. Test are located in app/test folder
 ```
 (venv) WL-198-226:app abinash$ pytest test
 ======================== test session starts =========================
