@@ -44,7 +44,7 @@ def signup(request):
         if form.is_valid():
             signup.create_user(form)
             signup.login_user(form, request)
-            return redirect('dashboard')
+            return redirect('home')
     else:
         form = signup.create_form()
 
