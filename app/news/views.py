@@ -68,9 +68,9 @@ def newsdetail(request, news_id):
     if news == None:
         raise Http404("News does not exist")
     news = news.__dict__
-    comments = CommentService().getByNewsId(news_id).values()
+    comments = CommentService().getByNewsId(news_id)
     form = MessageForm(initial={'news_id':news_id})
-
+    print( dir((list(comments)[0]).user) )
     if (news['content_type_id'] == 1 and request.user.is_authenticated != 1):
         return HttpResponse("Signup to view news", content_type="text/plain")
     context = {

@@ -48,7 +48,13 @@
                           <p class="text-secondary text-center">15 Minutes Ago</p>
                         </div>
                         <div class="col-md-10">
-                          <p><a href="#"><strong>Name</strong></a></p>
+                          <p><a href="#"><strong>
+                            {% if item.user.username %}
+                              {{item.user.username}}
+                            {% else %}
+                              Ananomous
+                            {% endif %}
+                          </strong></a></p>
                           <p>{{item.text}}</p>
                         </div>
                     </div>
