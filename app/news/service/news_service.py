@@ -3,6 +3,7 @@ from django.shortcuts import get_object_or_404
 
 from ..models import Category
 from ..models import News
+from ..models import Comment
 
 
 class NewsService():
@@ -10,6 +11,7 @@ class NewsService():
         pass
 
     def getAll(self):
+        news = None
         try:
             news = News.objects.all()
         except news.DoesNotExist:
@@ -17,9 +19,10 @@ class NewsService():
         return news
     
     def getById(self, id):
+        news = None
         try:
-            news = News.objects.filter(id=id)
-        except news.DoesNotExist:
+            news = News.objects.get(id=id)
+        except:
             raise Http404("News ID does not exist")
         return news
     
@@ -61,3 +64,23 @@ class CategoryService():
         except categories.DoesNotExist:
             raise Http404("Error getting news")
         return categories
+
+class CommentService():
+    def __init__(self):
+        pass
+    
+    def getByNewsId(self, news_id):
+        try:
+            comments = Comment.objects.filter(news_id=news_id)
+        except comments.DoesNotExist:
+            raise Http404("Comment does not exist")
+        return comments 
+
+    def saveNewComment(self, form_data):
+        try:
+            news = NewsService().getById(form_data["news_id"])
+            comments = Comment(text=form_data["text"], news = news)        
+            comments.save()
+        except:
+            raise Http404("Could not save comment")
+

@@ -9,5 +9,6 @@ urlpatterns = [
     path('health', views.health, name='health'),
     path('pages/signup',views.signup,name='signup-page'),
     path('pages/news/<int:news_id>', views.newsdetail, name='news-detail'),
-    path('pages/news', views.newscategory, name='news-category')
+    path('pages/news', views.newscategory, name='news-category'),
+    path('pages/comment', views.newscomment, name='news-comment')
 ]

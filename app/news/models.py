@@ -37,7 +37,7 @@ class Comment(models.Model):
     id = models.AutoField(primary_key=True)
     title = models.CharField(null=True, max_length = 50)
     text = models.CharField(max_length=1000)
-    news_id = models.ForeignKey(News, null=True, on_delete=models.SET_NULL)
+    news = models.ForeignKey(News, null=True, on_delete=models.SET_NULL)
 
     def __str__(self):
         return self.text
@@ -45,7 +45,7 @@ class Comment(models.Model):
 class Image(models.Model):
     id = models.AutoField(primary_key=True)
     alt_text = models.CharField(null=True, max_length = 50)
-    news_id = models.ForeignKey(News, null=True, on_delete=models.SET_NULL)
+    news = models.ForeignKey(News, null=True, on_delete=models.SET_NULL)
     url = models.CharField(null=True, max_length = 200)
 
     def __str__(self):
