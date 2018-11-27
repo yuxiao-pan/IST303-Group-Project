@@ -79,7 +79,7 @@ class CommentService():
     def saveNewComment(self, form_data):
         try:
             news = NewsService().getById(form_data["news_id"])
-            comments = Comment(text=form_data["text"], news = news)        
+            comments = Comment(text=form_data["text"], news = news, user = form_data["user"])        
             comments.save()
         except:
             raise Http404("Could not save comment")

@@ -70,7 +70,7 @@ def newsdetail(request, news_id):
     news = news.__dict__
     comments = CommentService().getByNewsId(news_id)
     form = MessageForm(initial={'news_id':news_id})
-    print( dir((list(comments)[0]).user) )
+    
     if (news['content_type_id'] == 1 and request.user.is_authenticated != 1):
         return HttpResponse("Signup to view news", content_type="text/plain")
     context = {
@@ -108,7 +108,8 @@ def newscomment(request):
             form = MessageForm(request.POST)
             if form.is_valid():
                 #print("break point 1")
-                form_data = dict(form.cleaned_data)  
+                form_data = dict(form.cleaned_data)
+                form_data["user"] = request.user  
                 CommentService().saveNewComment(form_data)
                 return redirect('news-detail', news_id = form_data["news_id"])
         else:
