@@ -117,6 +117,21 @@ def newscomment(request):
     else:
         return JsonResponse(method_not_supported, safe=False)
 
+def newssearch(request):
+    if request.user.is_authenticated:
+        search_key = request.GET.get('search')
+        news = NewsService().searchByKeyword(search_key)
+        print(news)
+        categories = getCategory(request)
+        context = {
+            "categories":categories,
+            "news":getPreviewNews(news),
+            "trend":getPreviewNews(news)
+        }
+        return render(request, 'dashboard.html', context)
+    else:
+        return JsonResponse(user_not_supported, safe=False)
+
 ## helper methods
 def getPreviewNews(news):
     for item in news:

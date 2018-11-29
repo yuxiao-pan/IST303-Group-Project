@@ -1,5 +1,6 @@
 from django.http import Http404
 from django.shortcuts import get_object_or_404
+from django.db.models import Q
 
 from ..models import Category
 from ..models import News
@@ -44,6 +45,13 @@ class NewsService():
         try:
             news = News.objects.filter(category_id=id, content_type_id=2)
         except news.DoesNotExist:
+            raise Http404("Error getting news")
+        return news
+
+    def searchByKeyword(self, keyword):
+        try:
+            news = News.objects.filter(Q(content__icontains=keyword) | Q(title__icontains=keyword))
+        except:
             raise Http404("Error getting news")
         return news
 
