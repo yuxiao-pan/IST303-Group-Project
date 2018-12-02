@@ -13,6 +13,12 @@
             <div class="col-md-8">
               <div class="row">
                   <h1>{{news.title}}</h1>
+                  <div class="col-md-12 p-1">
+                      Views : {{news.views}}
+                      <!--<button type="button" class="btn btn-outline-secondary btn-sm">
+                          <i class="fas fa-thumbs-up"></i> Like
+                      </button>-->
+                  </div>
                   <img class="img-fluid mx-auto p-2" src="https://via.placeholder.com/900x400">
                   <br>
                   <br>
@@ -21,22 +27,14 @@
                   </p>
               </div>
               <div>
-                <h1>Comments</h1>
+                <h1>Comments:</h1>
                 {% if user.is_authenticated %}    
                 <div class="form-group">
-                <!--<form action="pages/comment" method="post">
-                  <label for="comment">Comment:</label>
-                  <textarea class="form-control" rows="5" id="comment"></textarea>
-                  <input type="hidden" name="news_id" value="{{news.id}}"></input>
-                  <input class="btn text-white btn-danger m-2" type="submit" value="Submit">
-                </form>-->
-
-                <form action="/pages/comment" method="post">
-                  {% csrf_token %}
-                  {{ form }}
-                  <input class="btn text-white btn-danger m-2" type="submit" value="Submit">
-                </form>
-                  
+                  <form action="/pages/comment" method="post">
+                    {% csrf_token %}
+                    {{ form }}
+                    <input class="btn text-white btn-danger m-2" type="submit" value="Submit">
+                  </form>                  
                 </div>
                 {% endif %}
                 {% for item in comments %}

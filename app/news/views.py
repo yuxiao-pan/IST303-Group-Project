@@ -73,6 +73,8 @@ def newsdetail(request, news_id):
     
     if (news['content_type_id'] == 1 and request.user.is_authenticated != 1):
         return HttpResponse("Signup to view news", content_type="text/plain")
+    NewsService().updateViewCount(news_id)
+    news['views'] = news['views'] +1
     context = {
         "news":news,
         "categories": getCategory(request),

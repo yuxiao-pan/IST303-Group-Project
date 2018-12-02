@@ -1,6 +1,7 @@
 from django.http import Http404
 from django.shortcuts import get_object_or_404
 from django.db.models import Q
+from django.db.models import F
 
 from ..models import Category
 from ..models import News
@@ -51,9 +52,17 @@ class NewsService():
     def searchByKeyword(self, keyword):
         try:
             news = News.objects.filter(Q(content__icontains=keyword) | Q(title__icontains=keyword))
-        except:
+        except Exception as e:
             raise Http404("Error getting news")
         return news
+
+    def updateViewCount(self, news_id):
+        try:
+            News.objects.filter(id=news_id).update(views=F('views')+1)
+        except Exception as e:
+            # print(e)
+            raise Http404("Error updating view")
+
 
 class CategoryService():
     def __init__(self):
