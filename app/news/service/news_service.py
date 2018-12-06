@@ -1,8 +1,15 @@
 from django.http import Http404
 from django.shortcuts import get_object_or_404
+from django.db.models import Q
+from django.db.models import F
+from django.db.models import Count
+from django.utils import timezone
+from datetime import datetime
+from dateutil.relativedelta import relativedelta
 
 from ..models import Category
 from ..models import News
+from ..models import Comment
 
 
 class NewsService():
@@ -10,6 +17,7 @@ class NewsService():
         pass
 
     def getAll(self):
+        news = None
         try:
             news = News.objects.all()
         except news.DoesNotExist:
@@ -17,9 +25,10 @@ class NewsService():
         return news
     
     def getById(self, id):
+        news = None
         try:
-            news = News.objects.filter(id=id)
-        except news.DoesNotExist:
+            news = News.objects.get(id=id)
+        except:
             raise Http404("News ID does not exist")
         return news
     
@@ -44,6 +53,29 @@ class NewsService():
             raise Http404("Error getting news")
         return news
 
+    def searchByKeyword(self, keyword):
+        try:
+            news = News.objects.filter(Q(content__icontains=keyword) | Q(title__icontains=keyword))
+        except Exception as e:
+            raise Http404("Error getting news")
+        return news
+
+    def updateViewCount(self, news_id):
+        try:
+            News.objects.filter(id=news_id).update(views=F('views')+1)
+        except Exception as e:
+            # print(e)
+            raise Http404("Error updating view")
+    
+    def getRecentMostCommentedNews(self):
+        try:
+            check_date = timezone.now() + relativedelta(months=-2)
+            news = Comment.objects.filter(news__publish_date__gt=check_date).values('news_id', 'news__title', 'news__views').annotate(total=Count('news_id'))
+            return news
+        except Exception as e:
+            raise Http404("Could not get most commented news")  
+
+
 class CategoryService():
     def __init__(self):
         pass
@@ -61,3 +93,23 @@ class CategoryService():
         except categories.DoesNotExist:
             raise Http404("Error getting news")
         return categories
+
+class CommentService():
+    def __init__(self):
+        pass
+    
+    def getByNewsId(self, news_id):
+        try:
+            comments = Comment.objects.filter(news_id=news_id)
+        except comments.DoesNotExist:
+            raise Http404("Comment does not exist")
+        return comments 
+
+    def saveNewComment(self, form_data):
+        try:
+            news = NewsService().getById(form_data["news_id"])
+            comments = Comment(text=form_data["text"], news = news, user = form_data["user"])        
+            comments.save()
+        except:
+            raise Http404("Could not save comment")
+
