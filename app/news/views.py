@@ -67,14 +67,14 @@ def newsdetail(request, news_id):
     news = NewsService().getById(news_id)
     if news == None:
         raise Http404("News does not exist")
-    news = news.__dict__
+
     comments = CommentService().getByNewsId(news_id)
     form = MessageForm(initial={'news_id':news_id})
     
-    if (news['content_type_id'] == 1 and request.user.is_authenticated != 1):
+    if (news.content_type_id == 1 and request.user.is_authenticated != 1):
         return HttpResponse("Signup to view news", content_type="text/plain")
     NewsService().updateViewCount(news_id)
-    news['views'] = news['views'] +1
+    news.views = news.views +1
     context = {
         "news":news,
         "categories": getCategory(request),
@@ -143,7 +143,7 @@ def getPreviewNews(news):
 
 def getTrendingNews():
     mostCommentedNews = NewsService().getRecentMostCommentedNews()
-    print(mostCommentedNews)
+    #print(mostCommentedNews)
     trending = []
     for news in mostCommentedNews:
         item = {}

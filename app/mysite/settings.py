@@ -133,3 +133,6 @@ LOGOUT_REDIRECT_URL = reverse_lazy('login')
 SIGNUP_REDIRECT_URL = reverse_lazy('home')
 
 EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
+
+MEDIA_ROOT = os.path.join(BASE_DIR, "news/static/")
+MEDIA_URL = "/media/"

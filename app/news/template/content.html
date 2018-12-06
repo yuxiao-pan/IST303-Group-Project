@@ -19,7 +19,12 @@
                           <i class="fas fa-thumbs-up"></i> Like
                       </button>-->
                   </div>
-                  <img class="img-fluid mx-auto p-2" src="https://via.placeholder.com/900x400">
+                  {% if news.image.img %}
+                    <img class="img-fluid mx-auto p-2" src="/media/{{news.image.img}}"">
+                  {% else %}
+                    <img class="img-fluid" src="https://via.placeholder.com/900x400">
+                  {% endif %}
+                  
                   <br>
                   <br>
                   <p class="p-2">
