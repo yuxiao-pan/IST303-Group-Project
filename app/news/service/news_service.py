@@ -2,6 +2,10 @@ from django.http import Http404
 from django.shortcuts import get_object_or_404
 from django.db.models import Q
 from django.db.models import F
+from django.db.models import Count
+from django.utils import timezone
+from datetime import datetime
+from dateutil.relativedelta import relativedelta
 
 from ..models import Category
 from ..models import News
@@ -62,6 +66,14 @@ class NewsService():
         except Exception as e:
             # print(e)
             raise Http404("Error updating view")
+    
+    def getRecentMostCommentedNews(self):
+        try:
+            check_date = timezone.now() + relativedelta(months=-2)
+            news = Comment.objects.filter(news__publish_date__gt=check_date).values('news_id', 'news__title', 'news__views').annotate(total=Count('news_id'))
+            return news
+        except Exception as e:
+            raise Http404("Could not get most commented news")  
 
 
 class CategoryService():

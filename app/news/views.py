@@ -27,7 +27,7 @@ def home(request):
         context = {
             "categories":categories,
             "news":getPreviewNews(news),
-            "trend":getPreviewNews(news)
+            "trend":getTrendingNews()
         }
         return render(request, 'dashboard.html', context)
     else:
@@ -37,7 +37,7 @@ def home(request):
         context = {
             "categories":categories,
             "news":getPreviewNews(news),
-            "trend":getPreviewNews(news)
+            "trend":getTrendingNews()
         }
         return render(request, 'home.html', context)
 
@@ -79,7 +79,8 @@ def newsdetail(request, news_id):
         "news":news,
         "categories": getCategory(request),
         "comments": comments,
-        "form":form
+        "form":form,
+        "trend":getTrendingNews()
     }
     #return JsonResponse(list(comments), safe=False)
     return render(request, 'content.html', context)
@@ -91,7 +92,7 @@ def newscategory(request):
         context = {
             "categories": categories,
             "news" : getPreviewNews(news),
-            "trend": getPreviewNews(news)
+            "trend": getTrendingNews()
         }
         return render(request, 'dashboard.html', context)
     else:
@@ -100,7 +101,7 @@ def newscategory(request):
         context = {
             "categories": categories,
             "news" : getPreviewNews(news),
-            "trend": getPreviewNews(news)
+            "trend": getTrendingNews()
         }
         return render(request, 'home.html', context)
 
@@ -128,7 +129,7 @@ def newssearch(request):
         context = {
             "categories":categories,
             "news":getPreviewNews(news),
-            "trend":getPreviewNews(news)
+            "trend":getTrendingNews()
         }
         return render(request, 'dashboard.html', context)
     else:
@@ -141,7 +142,20 @@ def getPreviewNews(news):
     return news
 
 def getTrendingNews():
-    pass ## TODO
+    mostCommentedNews = NewsService().getRecentMostCommentedNews()
+    print(mostCommentedNews)
+    trending = []
+    for news in mostCommentedNews:
+        item = {}
+        item["id"] = news["news_id"]
+        item["title"] = news["news__title"]
+        score = news["news__views"] * 1 + news["total"] * 5
+        item["score"] = score
+        trending.append(item)
+
+    trending = sorted(trending, key=lambda k: k['score'], reverse=True) 
+
+    return trending[:5]
 
 def getCategory(request):
     if request.user.is_authenticated:
