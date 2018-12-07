@@ -79,7 +79,7 @@ WSGI_APPLICATION = 'mysite.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': os.path.join(BASE_DIR, 'test_db.sqlite3'),
+        'NAME': os.path.join(BASE_DIR, 'db_test.sqlite3'),
     }
 }
 
@@ -133,3 +133,6 @@ LOGOUT_REDIRECT_URL = reverse_lazy('login')
 SIGNUP_REDIRECT_URL = reverse_lazy('home')
 
 EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
+
+MEDIA_ROOT = os.path.join(BASE_DIR, "news/static/")
+MEDIA_URL = "/media/"
