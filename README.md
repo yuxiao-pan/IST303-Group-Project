@@ -114,6 +114,15 @@ TOTAL                              262     29    89%
 (venv) WL-203-33:app abinash$
 ```
 ## Install FAQ
+- plugin/ module not found
+Due to the conflict related to python version some plugin might not load properly from virtual enviroment.
+To fix such issue, install the plugin required by project which is listed in file "requrement.txt" located in app directory.
+Single command installer is as following.
+
+```
+(venv) WL-203-33:app abinash$ pip install -r ./requirement.txt
+```
+
 - Django not found/ installed
 Some user reported that in the first run Django was not loaded from Virtual Environment. 
 In such case please install Django after virtual environment activation by 
