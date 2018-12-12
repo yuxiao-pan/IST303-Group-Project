@@ -18,8 +18,10 @@
                                 <img class="card-img-top thum-image" src="https://via.placeholder.com/150x150" alt="Card image cap">
                             {% endif %}
                             <div class="card-body">
-                            <h5 class="card-title">{{item.title}}</h5>
-                            <p class="card-text">{{item.content}}</p>
+                            <div style="height:350px">
+                                <h5 class="card-title">{{item.title}}</h5>
+                                <p class="card-text">{{item.content}}</p>
+                            </div>
                             <a href="{% url 'news-detail' item.id%}" class="btn btn-primary">Read More</a>
                             </div>
                         </div>
