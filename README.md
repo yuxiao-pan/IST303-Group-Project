@@ -10,7 +10,7 @@
 ### Mac OS
 source ./venv/bin/activate 
 ### Windows OS
-source ./venv/bin/activate.bat
+execute/run "activate" file
 ```
 - run Dango server from app folder
 ```
@@ -64,18 +64,54 @@ DJANGO_SETTINGS_MODULE setting is required for providing django context to test.
 Run Test from inside "app" folder with command "pytest test" after activating virtual environment. Test are located in app/test folder
 ```
 (venv) WL-198-226:app abinash$ pytest test
-======================== test session starts =========================
-platform darwin -- Python 3.7.0, pytest-3.8.2, py-1.7.0, pluggy-0.7.1
+================================================ test session starts =================================================
+platform darwin -- Python 3.7.0, pytest-3.10.0, py-1.7.0, pluggy-0.7.1
 Django settings: mysite.settings_test (from ini file)
 rootdir: /Users/abinash/Desktop/CGU/Courses/Software Development/project/IST303-Group-Project/app, inifile: pytest.ini
-plugins: django-3.4.3
-collected 16 items
+plugins: django-3.4.3, cov-2.6.0
+collected 25 items
 
-test/test_endpoint.py .....x.x..                               [ 62%]
-test/test_model.py ......                                      [100%]
+test/test_endpoint.py ......x.x.x........                                                                      [ 76%]
+test/test_model.py ......                                                                                      [100%]
 
-================ 14 passed, 2 xfailed in 0.98 seconds ================
-(venv) WL-198-226:app abinash$
+======================================== 22 passed, 3 xfailed in 2.08 seconds ========================================
+(venv) WL-203-33:app abinash$
+```
+
+## Coverage
+- How to run test coverage
+After virutal environment activation, from inside the app folder, Run "pytest --cov=news"
+
+```
+(venv) WL-203-33:app abinash$ pytest --cov=news
+================================= test session starts =================================
+platform darwin -- Python 3.7.0, pytest-3.10.0, py-1.7.0, pluggy-0.7.1
+Django settings: mysite.settings_test (from ini file)
+rootdir: /Users/abinash/Desktop/CGU/Courses/Software Development/project/IST303-Group-Project/app, inifile: pytest.ini
+plugins: django-3.4.3, cov-2.6.0
+collected 25 items
+
+test/test_endpoint.py ......x.x.x........                                       [ 76%]
+test/test_model.py ......                                                       [100%]
+
+---------- coverage: platform darwin, python 3.7.0-final-0 -----------
+Name                             Stmts   Miss  Cover
+----------------------------------------------------
+news/__init__.py                     0      0   100%
+news/admin.py                       11      0   100%
+news/apps.py                         3      0   100%
+news/models.py                      43      4    91%
+news/service/__init__.py             0      0   100%
+news/service/authentication.py      12      3    75%
+news/service/news_service.py        83     15    82%
+news/urls.py                         7      0   100%
+news/views.py                      103      7    93%
+----------------------------------------------------
+TOTAL                              262     29    89%
+
+
+======================== 22 passed, 3 xfailed in 2.55 seconds =========================
+(venv) WL-203-33:app abinash$
 ```
 ## Install FAQ
 - Django not found/ installed
