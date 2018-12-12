@@ -10,8 +10,13 @@
                 <div class="row">
                     {% for item in news %}
                     <div class="col-md-4">
-                        <div class="card">
-                            <img class="card-img-top" src="https://via.placeholder.com/150" alt="Card image cap">
+                        <div class="card m-1">
+                            <!--<img class="card-img-top" src="https://via.placeholder.com/150" alt="Card image cap">-->
+                            {% if item.image.img %}
+                                <img class="card-img-top thum-image" src="/media/{{item.image.img}}" alt="Card image cap">
+                            {% else %}
+                                <img class="card-img-top" src="https://via.placeholder.com/150" alt="Card image cap">
+                            {% endif %}
                             <div class="card-body">
                             <h5 class="card-title">{{item.title}}</h5>
                             <p class="card-text">{{item.content}}</p>
