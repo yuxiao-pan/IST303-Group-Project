@@ -25,7 +25,7 @@ class Category(models.Model):
 class Image(models.Model):
     id = models.AutoField(primary_key=True)
     alt_text = models.CharField(null=True, max_length = 50)
-    url = models.CharField(null=True, max_length = 200)
+    url = models.CharField(null=True, blank=True, max_length = 200)
     img = models.ImageField(upload_to="image", blank=True)
 
     def __str__(self):
@@ -40,7 +40,7 @@ class News(models.Model):
     likes = models.IntegerField(default=0)
     category = models.ForeignKey(Category, null=True, on_delete=models.SET_NULL)
     content_type = models.ForeignKey(ContentType, null=True, on_delete=models.SET_NULL)
-    image = models.ForeignKey(Image, null=True, on_delete=models.SET_NULL)
+    image = models.ForeignKey(Image, null=True, blank=True, on_delete=models.SET_NULL)
 
     def __str__(self):
         return self.title

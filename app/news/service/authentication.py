@@ -12,9 +12,7 @@ class Signup:
         return UserCreationForm()
     
     def login_user(self, form, request):
-        username = form.cleaned_data.get('username')
-        raw_password = form.cleaned_data.get('password1')
-        user = authenticate(username=username, password=raw_password)
+        user = authenticate(username=form.cleaned_data.get('username'), password=form.cleaned_data.get('password1'))
         login(request, user)
 
 

@@ -8,7 +8,7 @@ def test_index_page(client):
     result = client.get('/health').content.decode("utf-8")
     assert expected in result
 
-#test home page is available with desired view
+#test home page from unlogged user is available with desired view
 @pytest.mark.django_db
 def test_home_page(client):
     expected_content = [
@@ -17,6 +17,25 @@ def test_home_page(client):
       '<a class="nav-link" href=/accounts/login/>Login</a>'
     ]
 
+    result = client.get('/')
+    content = result.content.decode("utf-8")
+    #print(content)
+
+    for value in expected_content:
+      assert value in content
+    assert result.status_code == 200
+
+#test home page from logged user is available with desired view
+@pytest.mark.django_db
+def test_dashboard_page(client):
+    expected_content = [
+      '<title>News Portal</title>',
+      '<button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>',
+      '<a class="nav-link" href=/accounts/logout/>Signout</a>'
+    ]
+    username = "admin"
+    password = "123456"
+    client.login(username=username, password=password)
     result = client.get('/')
     content = result.content.decode("utf-8")
     #print(content)
@@ -76,6 +95,7 @@ def test_public_category(client):
     assert value in content
   assert result.status_code == 200
 
+# test unauthorized access to premium category
 @pytest.mark.django_db
 @pytest.mark.xfail
 def test_unauthorized_premium_category(client):
@@ -91,7 +111,7 @@ def test_unauthorized_premium_category(client):
     assert value in content
   assert result.status_code == 200
 
-# premium user ask for premium content
+# test premium user ask for premium content
 @pytest.mark.django_db
 def test_authorized_premium_category(client):
   expected_content = [
@@ -109,6 +129,7 @@ def test_authorized_premium_category(client):
     assert value in content
   assert result.status_code == 200
 
+# test unauthorized access to premium content
 @pytest.mark.django_db
 @pytest.mark.xfail
 def test_unauthorized_premium_content(client):
@@ -124,6 +145,7 @@ def test_unauthorized_premium_content(client):
     assert value in content
   assert result.status_code == 200
 
+# test unauthorized access client error message
 @pytest.mark.django_db
 def test_unauthorized_premium_content_error_msg(client):
   expected_content = [
@@ -136,6 +158,21 @@ def test_unauthorized_premium_content_error_msg(client):
     assert value in content
   assert result.status_code == 200
 
+# test invalid content id
+@pytest.mark.django_db
+@pytest.mark.xfail
+def test_invalid_content_id(client):
+  expected_content = [
+    'Signup to view news'
+  ]
+  result = client.get('/pages/news/100')
+  content = result.content.decode("utf-8")
+  #print(content)
+  for value in expected_content:
+    assert value in content
+  assert result.status_code == 200
+
+# Test authorized premium content access
 @pytest.mark.django_db
 def test_authorized_premium_content(client):
   expected_content = [
@@ -151,4 +188,118 @@ def test_authorized_premium_content(client):
   #print(content)
   for value in expected_content:
     assert value in content
+  assert result.status_code == 200
+
+# Test news search function
+@pytest.mark.django_db
+def test_news_search(client):
+  expected_content = [
+    '<h5 class="card-title">Science New public</h5>',
+    '<h5 class="card-title">Science News for Premium Users</h5>'
+  ]
+
+  username = "admin"
+  password = "123456"
+  client.login(username=username, password=password)
+  result = client.get('/pages/search?search=science')
+  content = result.content.decode("utf-8")
+  #print(content)
+  for value in expected_content:
+    assert value in content
+  assert result.status_code == 200
+
+# Test unauthorized news search function
+@pytest.mark.django_db
+def test_news_search_unauthorized(client):
+  expected_content = [
+    'User not supported'
+  ]
+
+  result = client.get('/pages/search?search=science')
+  content = result.content.decode("utf-8")
+  #print(content)
+  for value in expected_content:
+    assert value in content
+  assert result.status_code == 200
+
+
+# Test login feature
+@pytest.mark.django_db
+def test_login_function(client):
+  data = {
+    "username" : "admin",
+    "password" : "123456"
+  }
+  result = client.post('/accounts/login/',data)
+  content = result.content.decode("utf-8")
+  #print(result)
+  assert result.status_code == 302
+
+# Test Signup feature with invalid password
+@pytest.mark.django_db
+def test_invalid_signup(client):
+  expected_content = [
+    'Your password must contain at least 8 characters.'
+  ]
+  data = {
+    "username" : "test_user",
+    "password1" : "1",
+    "password1" : "1"
+  }
+  result = client.post('/pages/signup',data)
+  content = result.content.decode("utf-8")
+  #print(content)
+  for value in expected_content:
+    assert value in content
+  assert result.status_code == 200
+
+# Test Post comment by unauthorized user
+@pytest.mark.django_db
+def test_comment_unauthorized(client):
+  expected_content = [
+    'User not supported'
+  ]
+  data = {
+    "text" : "new comment from user 1",
+    "id": 1
+  }
+
+  result = client.post('/pages/comment',data)
+  content = result.content.decode("utf-8")
+  #print(content)
+  for value in expected_content:
+    assert value in content
+  assert result.status_code == 200
+
+# Test invalid Post comment without id by authorized user
+@pytest.mark.django_db
+def test_invalid_comment(client):
+  expected_content = [
+    'invalid form'
+  ]
+
+  data = {
+    "text" : "new comment from user 1"
+  }
+  client.login(username="admin", password="123456")
+  result = client.post('/pages/comment',data)
+  content = result.content.decode("utf-8")
+  #print(result)
+  for value in expected_content:
+    assert value in content
+  assert result.status_code == 200
+
+# Test Post comment with invalid http method
+@pytest.mark.django_db
+def test_comment_invalid_method(client):
+  expected_content = [
+    'method not supported'
+  ]
+
+  client.login(username="admin", password="123456")
+  result = client.get('/pages/comment?text=new')
+  content = result.content.decode("utf-8")
+  #print(result)
+  for value in expected_content:
+    assert value in content  
   assert result.status_code == 200

@@ -15,6 +15,7 @@ from .models import Category
 
 user_not_supported =  {"error":"User not supported"}
 method_not_supported = {"error":"method not supported"}
+invalid_form = {"error":"invalid form"}
 
 #### Controllers
 def health(request):
@@ -59,15 +60,8 @@ def signup(request):
     }
     return render(request, 'signup.html', context)
 
-def logout(request):
-    return render(request, 'dashboard.html')
-
-
 def newsdetail(request, news_id):
     news = NewsService().getById(news_id)
-    if news == None:
-        raise Http404("News does not exist")
-
     comments = CommentService().getByNewsId(news_id)
     form = MessageForm(initial={'news_id':news_id})
     
@@ -87,19 +81,17 @@ def newsdetail(request, news_id):
 
 def newscategory(request):
     if request.user.is_authenticated:
-        categories = CategoryService().getAll()
         news = NewsService().getAllByCategoryId(request.GET.get('cat'))
         context = {
-            "categories": categories,
+            "categories": getCategory(request),
             "news" : getPreviewNews(news),
             "trend": getTrendingNews()
         }
         return render(request, 'dashboard.html', context)
     else:
-        categories = CategoryService().getPublic()
         news = NewsService().getPublicByCategoryId(request.GET.get('cat'))
         context = {
-            "categories": categories,
+            "categories": getCategory(request),
             "news" : getPreviewNews(news),
             "trend": getTrendingNews()
         }
@@ -115,6 +107,8 @@ def newscomment(request):
                 form_data["user"] = request.user  
                 CommentService().saveNewComment(form_data)
                 return redirect('news-detail', news_id = form_data["news_id"])
+            else:
+                return JsonResponse(invalid_form, safe=False)
         else:
             return JsonResponse(user_not_supported, safe=False)
     else:
@@ -124,7 +118,7 @@ def newssearch(request):
     if request.user.is_authenticated:
         search_key = request.GET.get('search')
         news = NewsService().searchByKeyword(search_key)
-        print(news)
+        #print(news)
         categories = getCategory(request)
         context = {
             "categories":categories,
