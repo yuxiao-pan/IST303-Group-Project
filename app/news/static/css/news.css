@@ -14,3 +14,21 @@ body {
   object-fit: cover;
   height: 300px;
 }
+
+.card-body-cus{
+  height:350px
+}
+
+/*
+.card .card-text{
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+*/
+
+@media only screen and (max-width: 576px){
+  .card-body-cus{
+    height:auto
+  }
+}
