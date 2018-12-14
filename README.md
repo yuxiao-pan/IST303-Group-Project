@@ -14,6 +14,7 @@ execute/run "activate" file
 ```
 - run Dango server from app folder
 ```
+### use python3 in stead of python if code shows error
 cd ./app
 python manage.py runserver
 ```
